@@ -125,5 +125,5 @@ When the app changes what it reads, keeps or sends, this policy changes with it,
 
 ## Contact
 
-Recode Labs
+Recodex Labs
 ranjeetproductstudio@gmail.com
