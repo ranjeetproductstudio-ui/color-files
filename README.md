@@ -1,6 +1,6 @@
 # Privacy policy
 
-Color Files, version 1. Last updated: 2026-10-04.
+Color Files, version 1. Last updated: 2026-10-06.
 
 This policy describes what this version of the app does. It is written from the app itself: every statement below can be checked against the app's code and its list of permissions.
 
@@ -59,8 +59,9 @@ Your files never do, unless you send them yourself. Two things use the internet,
 
 | What | When | What Google receives | Google's policy |
 |---|---|---|---|
-| Ads (Google AdMob) | Free version only, after you answer Google's consent form where the law asks for one. A full-screen ad may show when you open a feature such as Same photos | The device's advertising ID (you can reset or delete it in Android's settings), the app set ID, the IP address, the phone's make, model and language, the app's version, how you interact with the ad, and, where Android offers them, Android's Privacy Sandbox ad topics and measurement. Not your files, their names, photos, places or what the app learnt about them | https://policies.google.com/technologies/ads |
+| Ads (Google AdMob) | Free version only, after you answer Google's consent form where the law asks for one. A full-screen ad may show when you leave a feature such as Same photos | The device's advertising ID (you can reset or delete it in Android's settings), the app set ID, the IP address, the phone's make, model and language, the app's version, how you interact with the ad, and, where Android offers them, Android's Privacy Sandbox ad topics and measurement. Not your files, their names, photos, places or what the app learnt about them | https://policies.google.com/technologies/ads |
 | The No-ads plan (Google Play Billing) | When the app asks Google Play whether the plan is on, and when you buy it | That this app asks for the plan "no_ads" on your Google account. Payment is handled by Google Play | https://policies.google.com/privacy |
+| Rating the app (Google Play In-App Review) | At most every 60 days, after you freed space with the app, Google Play may show its rating card | Your rating and review go to Google Play under your Google account, as when you rate on the Play Store. The developer sees them in Google Play, as any review | https://policies.google.com/privacy |
 
 In the EU, the UK and Switzerland the app shows Google's consent form before any ad, and Settings › Remove ads › Ad privacy choices changes your answer later.
 
@@ -79,7 +80,7 @@ You can choose to send something through Android's share screen or a file picker
 
 The developer collects nothing: the app sends no data to the developer. Google receives what is listed under "What leaves your phone", for the ads in the free version and for the No-ads plan. The app holds no analytics code.
 
-The libraries inside the app are listed in the app under Settings › About › Open-source licences. Except Google's ad and billing code named above, they run on your phone as part of the app and receive nothing.
+The libraries inside the app are listed in the app under Settings › About › Open-source licences. Except Google's ad, billing and review code named above, they run on your phone as part of the app and receive nothing.
 
 ## Add-ons
 
@@ -124,5 +125,5 @@ When the app changes what it reads, keeps or sends, this policy changes with it,
 
 ## Contact
 
-Ranjeet Studio
+Recode Labs
 ranjeetproductstudio@gmail.com
