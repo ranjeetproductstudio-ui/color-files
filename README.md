@@ -1,6 +1,6 @@
 # Privacy policy
 
-Color Files, version 1. Last updated: 2026-10-06.
+Color Files, version 1. Last updated: 2026-10-07.
 
 This policy describes what this version of the app does. It is written from the app itself: every statement below can be checked against the app's code and its list of permissions.
 
@@ -11,6 +11,7 @@ This policy describes what this version of the app does. It is written from the 
 - The No-ads plan is bought through Google Play. The developer gets no payment details.
 - The app has no accounts of its own, no analytics and no automatic crash reporting.
 - What the app learns about your files stays in the app's private storage on your phone and is removed when you uninstall the app.
+- Files in the Safe folder are encrypted on your phone. Their keys never leave it, and the recovery code is shown only to you: the developer never receives or stores it and cannot open your Safe folder. If you tap Save to password manager, the code goes to the password manager you pick, not to the developer.
 
 ## What the app reads, and why
 
@@ -51,16 +52,19 @@ In the app's private storage, which other apps cannot read:
 
 In your shared storage:
 
+- Safe folder: a folder named `.ColorFilesVault` on the phone's storage, hidden from galleries. It holds the files you moved there, encrypted (AES-256), their small encrypted pictures, an encrypted list of them, and their key encrypted with your recovery code. It stays when you uninstall the app, so a new install or a new phone can open it with the recovery code. Your PIN only works on this phone: what it unlocks is kept in the app's private storage, sealed with a key kept by Android on this phone (Android Keystore), and is not part of Android backup. Your fingerprint is checked by Android; the app never sees it. The app sends nothing about the Safe folder; the recovery code goes only where you save, share or copy it yourself. The recovery code is asked only when you forgot your PIN or on a new install; after it is used, the app makes a new one, and the old one stops working once you have kept the new one.
+
 - The Trash: a folder named `.FileExplorer-Trash` on each storage. Files you delete are moved there and removed for good after 30 days (you can change the number of days, or empty the Trash yourself).
 
 ## What leaves your phone
 
-Your files never do, unless you send them yourself. Two things use the internet, both from Google:
+Your files never do, unless you send them yourself. Only these leave the app:
 
-| What | When | What Google receives | Google's policy |
+| What | When | What is received, and by whom | Policy |
 |---|---|---|---|
 | Ads (Google AdMob) | Free version only, after you answer Google's consent form where the law asks for one. A full-screen ad may show when you leave a feature such as Same photos | The device's advertising ID (you can reset or delete it in Android's settings), the app set ID, the IP address, the phone's make, model and language, the app's version, how you interact with the ad, and, where Android offers them, Android's Privacy Sandbox ad topics and measurement. Not your files, their names, photos, places or what the app learnt about them | https://policies.google.com/technologies/ads |
 | The No-ads plan (Google Play Billing) | When the app asks Google Play whether the plan is on, and when you buy it | That this app asks for the plan "no_ads" on your Google account. Payment is handled by Google Play | https://policies.google.com/privacy |
+| The Safe folder's recovery code (Android's Credential Manager) | Only when you tap Save to password manager, or From password manager to fill the code back in | The recovery code goes to the password manager you pick (Google Password Manager or another one you use), which keeps it under its own policy and may sync it to your account there. The developer never sees it | The policy of the password manager you pick |
 | Rating the app (Google Play In-App Review) | At most every 60 days, after you freed space with the app, Google Play may show its rating card | Your rating and review go to Google Play under your Google account, as when you rate on the Play Store. The developer sees them in Google Play, as any review | https://policies.google.com/privacy |
 
 In the EU, the UK and Switzerland the app shows Google's consent form before any ad, and Settings › Remove ads › Ad privacy choices changes your answer later.
@@ -74,13 +78,14 @@ You can choose to send something through Android's share screen or a file picker
 | Files you select and share | The files |
 | A crash report, offered once after the app closed unexpectedly | The app's version, the Android version, the phone's make and model, the name of the screen, the time, and the technical trace of the error. File names, paths, photos, places and names are taken out before the report is written |
 | The diagnostic log (Settings › Backup) | Technical errors since the app was opened. Passwords and file paths are taken out. It is kept in memory only |
+| The Safe folder's recovery code (Share) | The code, as text |
 | A copy of your bookmarks and settings (Settings › Backup) | Your bookmarks, which hold folder paths, and your settings, written to the file you choose |
 
 ## What the developer and other companies collect
 
 The developer collects nothing: the app sends no data to the developer. Google receives what is listed under "What leaves your phone", for the ads in the free version and for the No-ads plan. The app holds no analytics code.
 
-The libraries inside the app are listed in the app under Settings › About › Open-source licences. Except Google's ad, billing and review code named above, they run on your phone as part of the app and receive nothing.
+The libraries inside the app are listed in the app under Settings › About › Open-source licences. Except Google's ad, billing and review code and Android's Credential Manager named above, they run on your phone as part of the app and receive nothing.
 
 ## Add-ons
 
@@ -95,6 +100,9 @@ The app can work with add-on apps that you install yourself. None comes with the
 | Empty the Trash | The files in it are removed for good |
 | Clear the app's storage in Android's settings | Everything the app stored in its private storage is removed. The Trash folder in shared storage stays until you empty it |
 | Uninstall the app | Android removes the app's private storage: its databases, settings, caches and crash report. Your own files stay, and so does the Trash folder `.FileExplorer-Trash` with what is in it: empty the Trash before you uninstall, or delete that folder afterwards |
+| Safe folder › Delete for ever | The encrypted files are deleted at once; they do not go to the Trash |
+| Safe folder › Start over (recovery code lost) | Nothing is deleted: the old encrypted files are set aside inside the `.ColorFilesVault` folder and open again only with their old recovery code |
+| Uninstall the app with files in the Safe folder | The `.ColorFilesVault` folder stays, encrypted, and opens again with the recovery code. Move your files out first if you want them back as normal files, or delete the folder; without the recovery code nobody, the developer included, can open it |
 
 ## Android backup
 
